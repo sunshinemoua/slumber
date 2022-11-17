@@ -1,0 +1,24 @@
+.page {
+  display: flex;
+  flex-direction: row;
+}
+.link {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.title {
+  justify-content: left;
+}
+
+.intro {
+  background-color: grey;
+  color: white;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: left;
+}
