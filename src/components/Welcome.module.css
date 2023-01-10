@@ -1,17 +1,18 @@
 .page {
   display: flex;
-  flex-direction: row;
 }
+
 .link {
-  margin: 0.5rem;
-  padding: 0.5rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: right;
+  width: 100%;
 }
 
 .title {
   justify-content: left;
+  text-decoration: none;
+  color: black;
 }
 
 .intro {
