@@ -6,10 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD:package.json
-=======
     "axios": "^1.2.3",
->>>>>>> 3486643 (used Moment for date, sleepTime and wakeTime. calculated duration with Moment):client/package.json
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
