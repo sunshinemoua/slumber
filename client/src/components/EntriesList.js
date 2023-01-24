@@ -12,13 +12,43 @@ const EntriesList = () => {
   const [wakeTime, setWakeTime] = useState(new Date());
   const [entries, setEntries] = useState([]);
 
-  const url = "https://data.mongodb-api.com/app/data-iolcw/endpoint/data/v1";
+  const url = "http://localhost:3001/entries";
 
   useEffect(() => {
-    axios.get(url).then((response) => {
-      console.log(url);
-    });
+    const fetchData = async () => {
+      await getEntries();
+    };
+    fetchData();
   }, []);
+
+  const getEntries = async () => {
+    try {
+      const response = await axios.get(url);
+      const data = response.data;
+      setEntries(data);
+      console.log("SUCCESS", data);
+    } catch (err) {
+      console.log("ERROR", err);
+    }
+  };
+
+  const addEntry = async (event) => {
+    event.preventDefault();
+    const entry = {
+      sleepTime,
+      wakeTime,
+      timeLapsed,
+    };
+
+    try {
+      await axios.post(url, entry);
+      await getEntries();
+    } catch (err) {
+      console.log("ERROR", err);
+    }
+
+    console.log("FROM POST", entries);
+  };
 
   const handleSleepTimeChange = (sleepTime) => {
     setSleepTime(sleepTime);
@@ -30,23 +60,11 @@ const EntriesList = () => {
 
   const timeLapsed = moment
     .utc(
-      moment(wakeTime, "MM/DD/YYYY HH:mm:ss:SSS").diff(
-        moment(sleepTime, "MM/DD/YYYY HH:mm:ss:SSS")
+      moment(wakeTime, "MM/DD/YYYY HH:mm").diff(
+        moment(sleepTime, "MM/DD/YYYY HH:mm")
       )
     )
     .format("HH:mm");
-
-  const addEntry = (event) => {
-    event.preventDefault();
-    const entry = {
-      sleepTime,
-      wakeTime,
-      timeLapsed,
-    };
-
-    setEntries([...entries, entry]);
-    console.log(entries);
-  };
 
   return (
     <div>

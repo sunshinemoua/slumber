@@ -3,9 +3,9 @@ import classes from "../components/Welcome.module.css";
 
 const Navbar = () => {
   return (
-    <div>
+    <div className={classes.page}>
       <NavLink className={classes.title} to="/">
-        <h1>Welcome to Slumber</h1>
+        Slumber
       </NavLink>
       <NavLink className={classes.link} to="/About">
         About

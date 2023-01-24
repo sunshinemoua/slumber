@@ -5,7 +5,7 @@ import classes from "./Welcome.module.css";
 
 const Welcome = () => {
   return (
-    <div className={classes.page}>
+    <div>
       <Navbar />
       <EntriesList />
     </div>

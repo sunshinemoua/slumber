@@ -1,15 +1,31 @@
 .page {
   display: flex;
-}
-
-.link {
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 80%;
 }
 
 .title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.link {
+  color: pink;
+  font-size: 1.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+.link a:hover {
+  color: red;
+  text-decoration: underline;
+}
+.link:visited {
+  color: purple;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
   justify-content: left;
   text-decoration: none;
   color: black;
