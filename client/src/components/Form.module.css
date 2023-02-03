@@ -1,0 +1,36 @@
+.container {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.datepicker {
+  display: flex;
+  align-items: center;
+  background-color: #567189;
+  font-size: 1.25rem;
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid #e9e8e8;
+  color: #fff;
+}
+
+.datepicker__input-container {
+  display: flex;
+  align-items: center;
+}
+
+.datepicker::placeholder {
+  color: #fff;
+}
+
+.datepicker:focus {
+  outline: none;
+}

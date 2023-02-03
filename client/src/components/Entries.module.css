@@ -1,0 +1,15 @@
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.date {
+  display: flex;
+  margin: 2rem;
+}
+
+.duration {
+  display: flex;
+  margin: 2rem;
+}

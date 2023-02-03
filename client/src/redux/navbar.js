@@ -1,21 +1,21 @@
 import { NavLink } from "react-router-dom";
-import classes from "../components/Welcome.module.css";
+import classes from "../components/Home.module.css";
 
 const Navbar = () => {
   return (
-    <div className={classes.page}>
+    <div className={classes.navbar}>
       <NavLink className={classes.title} to="/">
         Slumber
       </NavLink>
-      <NavLink className={classes.link} to="/About">
-        About
+      <NavLink className={classes.link} to="/history">
+        History
       </NavLink>
-      <NavLink className={classes.link} to="/Dashboard">
-        Dashboard{" "}
+      {/* <NavLink className={classes.link} to="/Dashboard">
+        Dashboard
       </NavLink>
       <NavLink className={classes.link} to="/FAQs">
         FAQs
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 };

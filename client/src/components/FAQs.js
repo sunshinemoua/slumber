@@ -1,5 +1,12 @@
+import Navbar from "../redux/navbar";
+
 const FAQs = () => {
-  return <h1> FAQs </h1>;
+  return (
+    <div>
+      <Navbar />
+      <h1> FAQs </h1>;
+    </div>
+  );
 };
 
 export default FAQs;

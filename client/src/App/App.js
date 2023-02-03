@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "../components/Dashboard";
-import Welcome from "../components/Welcome";
-import About from "../components/About";
+import Home from "../components/Home";
+import History from "../components/History";
 import FAQs from "../components/FAQs";
 import Login from "../Login/Login.js";
 import useToken from "../hooks/useToken.js";
@@ -18,9 +18,9 @@ function App() {
     <div className="wrapper">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Welcome />} />
+          <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/history" element={<History />} />
           <Route path="/FAQs" element={<FAQs />} />
         </Routes>
       </BrowserRouter>

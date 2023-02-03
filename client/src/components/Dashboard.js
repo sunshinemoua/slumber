@@ -1,5 +1,11 @@
 import React from "react";
+import Navbar from "../redux/navbar";
 
 export default function Dashboard() {
-  return <h2> Dashboard</h2>;
+  return (
+    <div>
+      <Navbar />
+      <h2> Dashboard</h2>
+    </div>
+  );
 }

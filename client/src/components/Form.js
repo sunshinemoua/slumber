@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
 import Card from "./Card";
 import Entries from "./Entries";
+import classes from "./Form.module.css";
+import Input from "./Input";
+import Button from "./Button";
 
-const EntriesList = () => {
-  const [sleepTime, setSleepTime] = useState(new Date());
-  const [wakeTime, setWakeTime] = useState(new Date());
+const Form = () => {
+  const [sleepTime, setSleepTime] = useState(false);
+  const [wakeTime, setWakeTime] = useState(false);
   const [entries, setEntries] = useState([]);
 
   const url = "http://localhost:3001/entries";
@@ -43,6 +45,7 @@ const EntriesList = () => {
     try {
       await axios.post(url, entry);
       await getEntries();
+      alert("successfully added entry");
     } catch (err) {
       console.log("ERROR", err);
     }
@@ -67,37 +70,31 @@ const EntriesList = () => {
     .format("HH:mm");
 
   return (
-    <div>
+    <div className={classes.container}>
       <Card>
-        <form onSubmit={addEntry}>
-          <label>
-            Sleep Time:
-            <Datepicker
-              selected={sleepTime}
-              onChange={handleSleepTimeChange}
-              dateFormat="MM/dd/yyyy hh:mm a"
-              showTimeInput
-            />
-          </label>
-          <br />
-          <label>
-            Wake Time:
-            <Datepicker
-              selected={wakeTime}
-              onChange={handleWakeTimeChange}
-              dateFormat="MM/dd/yyyy hh:mm a"
-              showTimeInput
-            />
-          </label>
-          <button type="submit">ADD</button>
+        <form className={classes.form} onSubmit={addEntry}>
+          <h2>Enter Times</h2>
+
+          <Input
+            placeholderText={"Sleep Time"}
+            selected={sleepTime}
+            onChange={handleSleepTimeChange}
+          />
+
+          <Input
+            placeholderText={"Wake Time"}
+            selected={wakeTime}
+            onChange={handleWakeTimeChange}
+          />
+
+          <Button
+            buttonName={"Save Entry"}
+            disabled={!wakeTime || !sleepTime}
+          />
         </form>
-      </Card>
-      <Card>
-        <h3>History</h3>
-        <Entries entries={entries} />
       </Card>
     </div>
   );
 };
 
-export default EntriesList;
+export default Form;
