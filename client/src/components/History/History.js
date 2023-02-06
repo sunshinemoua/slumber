@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Navbar from "../redux/navbar";
-import Entries from "./Entries";
+import Navbar from "../../redux/navbar";
+import Entries from "../Entries/Entries";
 import classes from "./History.module.css";
-import LatestEntry from "./LatestEntry";
+import LatestEntry from "../LastestEntry/LatestEntry";
+import Chart from "../Chart/Chart";
 
 const History = () => {
   const [entries, setEntries] = useState([]);
@@ -20,7 +21,7 @@ const History = () => {
       <Navbar />
       <LatestEntry entries={entries} />
       <h1 className={classes.label}> History </h1>
-      <Entries entries={entries} />
+      <Chart entries={entries} setEntries={setEntries} />
     </div>
   );
 };

@@ -12,7 +12,7 @@ const entrySchema = new mongoose.Schema({
   },
 
   timeLapsed: {
-    type: String,
+    type: Number,
     required: true,
   },
 });

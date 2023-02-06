@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Moment from "react-moment";
-import Card from "./Card.js";
 import classes from "./LatestEntry.module.css";
 
 const LatestEntry = ({ entries }) => {
   const entriesCopy = [...entries];
   const pop = entriesCopy.pop();
-  console.log(pop);
 
   return (
     <div>
@@ -21,8 +19,8 @@ const LatestEntry = ({ entries }) => {
           />
         </div>
         <div className={classes["time-wrapper"]}>
-          <span className={classes["label"]}>Time</span>
-          <span className={classes.time}>{pop?.timeLapsed}</span>
+          <span className={classes["label"]}>Time </span>
+          <span className={classes.time}>{pop?.timeLapsed + "h"}</span>
         </div>
       </div>
     </div>

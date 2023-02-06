@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
-import Card from "./Card";
-import Entries from "./Entries";
+import Card from "../Card/Card";
 import classes from "./Form.module.css";
-import Input from "./Input";
-import Button from "./Button";
+import Input from "../Input/Input";
+import Button from "../Button/Button";
 
 const Form = () => {
   const [sleepTime, setSleepTime] = useState(false);
@@ -28,7 +26,6 @@ const Form = () => {
       const response = await axios.get(url);
       const data = response.data;
       setEntries(data);
-      console.log("SUCCESS", data);
     } catch (err) {
       console.log("ERROR", err);
     }
@@ -36,6 +33,10 @@ const Form = () => {
 
   const addEntry = async (event) => {
     event.preventDefault();
+    const timeLapsed = moment(wakeTime)
+      .diff(moment(sleepTime), "hours", true)
+      ?.toFixed(2);
+
     const entry = {
       sleepTime,
       wakeTime,
@@ -46,11 +47,11 @@ const Form = () => {
       await axios.post(url, entry);
       await getEntries();
       alert("successfully added entry");
+      setSleepTime(false);
+      setWakeTime(false);
     } catch (err) {
       console.log("ERROR", err);
     }
-
-    console.log("FROM POST", entries);
   };
 
   const handleSleepTimeChange = (sleepTime) => {
@@ -61,19 +62,11 @@ const Form = () => {
     setWakeTime(wakeTime);
   };
 
-  const timeLapsed = moment
-    .utc(
-      moment(wakeTime, "MM/DD/YYYY HH:mm").diff(
-        moment(sleepTime, "MM/DD/YYYY HH:mm")
-      )
-    )
-    .format("HH:mm");
-
   return (
     <div className={classes.container}>
       <Card>
         <form className={classes.form} onSubmit={addEntry}>
-          <h2>Enter Times</h2>
+          <h2 className={classes.title}>Enter Times</h2>
 
           <Input
             placeholderText={"Sleep Time"}

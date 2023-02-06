@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../redux/navbar";
-import Form from "./Form";
+import Navbar from "../../redux/navbar";
+import Form from "../Form/Form";
 import classes from "./Home.module.css";
 
 const Home = () => {
