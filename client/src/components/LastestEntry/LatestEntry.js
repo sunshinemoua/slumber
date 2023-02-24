@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Moment from "react-moment";
 import classes from "./LatestEntry.module.css";
 

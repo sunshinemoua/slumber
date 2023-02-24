@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Navbar from "../../redux/navbar";
-import Entries from "../Entries/Entries";
 import classes from "./History.module.css";
 import LatestEntry from "../LastestEntry/LatestEntry";
 import Chart from "../Chart/Chart";

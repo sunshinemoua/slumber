@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   BarChart,
   Bar,
@@ -10,14 +10,12 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import Moment from "react-moment";
 import moment from "moment";
 
 const Chart = ({ entries }) => {
   const entriesCopy = [...entries];
   entriesCopy.forEach((entry) => {
     const formatSleepTime = moment(entry.sleepTime).format("l");
-    console.log(formatSleepTime);
     entry.sleepTime = formatSleepTime;
   });
 
